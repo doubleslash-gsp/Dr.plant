@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
 
     <item
         android:id="@+id/one"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:icon="@drawable/plant_white"
+        android:title="@string/menu_title1" />
 
     <item
         android:id="@+id/two"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:icon="@drawable/selfcheck_white"
+        android:title="@string/menu_title2" />
 
     <item
         android:id="@+id/three"
@@ -18,12 +20,12 @@
 
     <item
         android:id="@+id/four"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications"/>
+        android:icon="@drawable/dr"
+        android:title="@string/menu_title4"/>
 
     <item
         android:id="@+id/five"
-        android:icon="@drawable/ic_notifications_black_24dp"
-        android:title="@string/title_notifications" />
+        android:icon="@drawable/mypage"
+        android:title="@string/menu_title5" />
 
 </menu>

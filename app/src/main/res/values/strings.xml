@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">RaisePlant</string>
     <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="menu_title1">내 식물보기</string>
+    <string name="menu_title2">자가진단</string>
+    <string name="menu_title4">전문가진단</string>
+    <string name="menu_title5">내정보보기</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
