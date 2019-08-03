@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/half_round_rect">
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingTop="20dp">
+
+        <ImageButton
+            android:id="@+id/backAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/back"
+            android:background="@color/base_pink"
+            android:layout_marginLeft="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:padding="20dp"
+            android:textColor="#195422"
+            android:textStyle="bold"
+            android:text="내 식물 추가하기"/>
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/plantData"
+        android:layout_width="300dp"
+        android:layout_height="430dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_below="@+id/layout"
+        android:orientation="vertical"
+        android:background="@drawable/plant_list_border"
+        android:weightSum="1">
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/plant_list_border">
+            <ImageView
+                android:id="@+id/addplantpic"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <EditText
+                android:id="@+id/newplantname"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_gravity="center"
+                android:hint="식물 이름 입력"
+                android:textSize="17dp"
+                android:padding="5dp"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="종류"
+                    android:textSize="14dp"
+                    android:textColor="#3C3C3C"/>
+                <EditText
+                    android:id="@+id/newplantkind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:hint="종류 입력"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="물주기"
+                    android:textSize="14dp"
+                    android:textColor="#3C3C3C"/>
+                <EditText
+                    android:id="@+id/newplantwater"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:hint="시간, 양 입력"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:text="구매날짜"
+                    android:textSize="14dp"
+                    android:textColor="#3C3C3C"/>
+                <EditText
+                    android:id="@+id/newplantdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:hint="0000-00-00"
+                    android:textSize="14dp"/>
+            </LinearLayout>
+
+
+            <ImageButton
+                android:id="@+id/completeAdd"
+                android:layout_width="40dp"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:background="#0000"
+                android:src="@drawable/okay"
+                android:layout_gravity="center"
+                android:scaleType="fitXY"
+                android:layout_margin="10dp"/>
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>

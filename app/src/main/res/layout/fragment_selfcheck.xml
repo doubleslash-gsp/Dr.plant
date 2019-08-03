@@ -1,11 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/selflayout"
+    android:background="#FFF"
+    tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:background="@drawable/shadow_bottom_pink"
+        android:gravity="center"
+        android:text="자가진단"
+        android:textColor="#195422"
+        android:textSize="17dp" />
+
+    <LinearLayout
+        android:id="@+id/drplant"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/title"
+        android:background="@drawable/shadow_bottom">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/big_dr_plant"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="식물박사"
+                android:textColor="#334856"
+                android:textSize="17dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="인공지능 챗봇 식물박사와 대화 해보세요!"
+                android:textColor="#334856"
+                android:textSize="10dp"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/chatlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="self check"/>
-</LinearLayout>
+        android:layout_weight="20"
+        android:background="#FFFFFF"
+        android:divider="#FFFFFF"
+        android:layout_below="@+id/drplant"
+        android:layout_above="@+id/li1"
+        android:dividerHeight="0px" />
+
+    <LinearLayout
+        android:id="@+id/li1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFF"
+        android:paddingVertical="15dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/mike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/mike"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:background="@drawable/round_send">
+
+            <EditText
+                android:id="@+id/chatEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="내용을 입력해주세요."
+                android:layout_gravity="center_vertical"
+                android:textSize="14dp"
+                android:focusable="true"
+                android:focusableInTouchMode ="true"
+                android:background="@null"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:id="@+id/chatSend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="4dp"
+                android:background="@drawable/bt_send"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

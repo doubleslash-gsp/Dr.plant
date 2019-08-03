@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/base_pink"
+    android:id="@+id/fragment_diary">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:textSize="17dp"
+        android:gravity="center"
+        android:padding="20dp"
+        android:textColor="#195422"
+        android:layout_marginLeft="135dp"
+        android:text="식물일지"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textview"
+        android:orientation="vertical"
+        android:background="@drawable/plant_list_border"
+        android:layout_marginBottom="20dp"
+        android:weightSum="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/cancle"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/cancle"
+                android:background="#0000"
+                android:scaleType="fitXY"
+                android:layout_marginLeft="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"/>
+
+            <EditText
+                android:id="@+id/diary_plantname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@null"
+                android:inputType="none"
+                android:enabled="false"
+                android:text="산토리니"
+                android:textColor="#818181"
+                android:textSize="17dp" />
+            <ImageButton
+                android:id="@+id/modify"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/modify"
+                android:background="#0000"
+                android:layout_marginRight="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+
+        <View
+            style="@style/dotDivider"
+            android:layout_alignParentBottom="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.15"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/diary_plantkind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:text="융설란과산세베리아"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#818181"
+                android:textSize="17dp"
+                android:inputType="none"
+                android:enabled="false"/>
+            <EditText
+                android:id="@+id/diary_plantkindEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="english name"
+                android:textColor="#818181"
+                android:textSize="13dp"
+                android:inputType="none"
+                android:enabled="false"/>
+        </LinearLayout>
+
+        <View
+            style="@style/dotDivider"
+            android:layout_alignParentBottom="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.45">
+            <View
+                style="@style/Divider"
+                android:layout_marginTop="100dp"/>
+            <ImageView
+                android:id="@+id/diary_plantpic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:background="@drawable/plant_list_border"
+                android:src="@drawable/plant1"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/et_firstday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="0000-00-00"
+                        android:background="@null"
+                        android:textColor="#A0B8A4"
+                        android:textSize="14dp"
+                        android:inputType="none"
+                        android:enabled="false"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="현 온도 "/>
+                    <TextView
+                        android:id="@+id/temperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="00"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="도"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="현 습도 "/>
+                    <TextView
+                        android:id="@+id/humi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="00"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:textColor="#818181"
+                        android:text="%"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|right"
+                android:gravity="center|right"
+                android:layout_marginRight="50dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#818181"
+                    android:text="D "/>
+
+                <TextView
+                    android:id="@+id/dateplus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#818181"
+                    android:text="000"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:layout_gravity="center|left"
+            android:gravity="center|left">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#818181"
+                android:padding="10dp"
+                android:text="마지막으로 물을 준 날"/>
+            <EditText
+                android:id="@+id/last_water"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:textSize="14dp"
+                android:textColor="#A0B8A4"
+                android:hint="0000-00-00"
+                android:inputType="none"
+                android:enabled="false"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

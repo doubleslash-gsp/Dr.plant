@@ -5,4 +5,14 @@
     <color name="colorAccent">#D81B60</color>
 
     <color name="white">#ffffff</color>
+    <color name="base_pink">#f1d1c4</color>
+    <color name="text_green">#195422</color>
+    <color name="text_darkgreen">#3C3C3C</color>
+    <color name="text_grey">#818181</color>
+    <color name="text_darkgrey">#717171</color>
+    <color name="dark_gery">#A8A8A8</color>
+    <color name="week_grey">#F4F4F4</color>
+
+    <color name="one_background">#40E0E0E0</color>
+    <color name="two_background">#0DF1D1C4</color>
 </resources>
