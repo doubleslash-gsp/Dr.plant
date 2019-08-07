@@ -1,5 +1,6 @@
 package com.example.jh.raiseplant.DrCheck_Code;
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -41,8 +42,7 @@ public class QuestionListFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getQuestionListTask gettask = new getQuestionListTask();
-        gettask.execute();
+
     }
 
     @Nullable
@@ -76,6 +76,8 @@ public class QuestionListFragment extends Fragment {
             }
         });
 
+        getQuestionListTask gettask = new getQuestionListTask();
+        gettask.execute();
 
         return rootview;
     }
@@ -127,7 +129,6 @@ public class QuestionListFragment extends Fragment {
                         String content = jObject.getString("content");
 
                         questionlist_adapter.addItem(title, user_id, date, reply, board_num, plant_num, content, user_id);
-                        questionlist_adapter.notifyDataSetChanged();
 
                     }
                     questionlist_adapter.notifyDataSetChanged();

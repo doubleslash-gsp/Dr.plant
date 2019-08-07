@@ -83,7 +83,7 @@ public class AddPlantFragment extends Fragment implements View.OnClickListener{
                 String strwater = newplantwater.getText().toString();
                 String strdate = newplantdate.getText().toString();
 
-                if(strname==null || strkind ==null || strwater ==null || strdate== null)
+                if(strname.equals("") || strkind.equals("") || strwater.equals("") || strdate.equals(""))
                     Toast.makeText(getContext(), "내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 else{
                     addPlantTask task = new addPlantTask();

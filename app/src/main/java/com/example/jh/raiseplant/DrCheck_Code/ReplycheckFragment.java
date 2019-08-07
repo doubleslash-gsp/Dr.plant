@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -85,7 +86,7 @@ public class ReplycheckFragment extends Fragment implements View.OnClickListener
                 , container, false);
 
         tv_content = (TextView) rootview.findViewById(R.id.tv_content);
-        tv_content.setText(content); //식물 증상
+        tv_content.setText(Html.fromHtml(content,  Html.	FROM_HTML_MODE_LEGACY)); //식물 증상
 
         tv_plantkind = (TextView) rootview.findViewById(R.id.tv_plantkind);
         tv_name = (TextView) rootview.findViewById(R.id.tv_name);

@@ -6,12 +6,12 @@
 
     <item
         android:id="@+id/one"
-        android:icon="@drawable/plant_white"
+        android:icon="@drawable/plant_click"
         android:title="@string/menu_title1" />
 
     <item
         android:id="@+id/two"
-        android:icon="@drawable/selfcheck_white"
+        android:icon="@drawable/selfcheck_click"
         android:title="@string/menu_title2" />
 
     <item
@@ -20,12 +20,12 @@
 
     <item
         android:id="@+id/four"
-        android:icon="@drawable/dr"
+        android:icon="@drawable/drcheck_click"
         android:title="@string/menu_title4"/>
 
     <item
         android:id="@+id/five"
-        android:icon="@drawable/mypage"
+        android:icon="@drawable/mypage_click"
         android:title="@string/menu_title5" />
 
 </menu>

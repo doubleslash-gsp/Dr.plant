@@ -49,7 +49,7 @@
         android:background="@drawable/plant_list_border"
         android:weightSum="1">
         <LinearLayout
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.5"
             android:layout_gravity="center"

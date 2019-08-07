@@ -190,14 +190,15 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
 
     public void addToImageInEdittext(Bitmap bitmap){
         Drawable image = new BitmapDrawable(getActivity().getResources(), bitmap);
-        image .setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
+        image.setBounds(0, 0, image.getIntrinsicWidth(), image.getIntrinsicHeight());
 
         int selectionCursor = et_content.getSelectionStart();
         et_content.getText().insert(selectionCursor, ".");
         selectionCursor = et_content.getSelectionStart();
 
         SpannableStringBuilder builder = new SpannableStringBuilder(et_content.getText());
-        builder.setSpan(new ImageSpan(image), selectionCursor - ".".length(), selectionCursor,
+        //TODO: source 값으로 이미지 구분
+        builder.setSpan(new ImageSpan(image, "test"), selectionCursor - ".".length(), selectionCursor,
                 Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         et_content.setText(builder);
         et_content.setSelection(selectionCursor);
@@ -216,7 +217,11 @@ public class QuestionFragment extends Fragment implements View.OnClickListener {
             Map<String, String> params = new HashMap<String, String>();
             params.put("user_id", user_id);
             params.put("title", et_title.getText().toString());
-            params.put("content", Html.toHtml(new SpannableString(et_content.getText())));
+
+            /* TODO: edittext 이미지 저장 방법
+            * https://stackoverflow.com/questions/2865452/is-it-possible-to-display-inline-images-from-html-in-an-android-textview
+            */
+            params.put("content", Html.toHtml(new SpannableStringBuilder(et_content.getText()), Html.FROM_HTML_MODE_LEGACY));
             params.put("plant_num", Integer.toString(plant_num));
 
             long now = System.currentTimeMillis();

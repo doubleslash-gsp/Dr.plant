@@ -55,6 +55,18 @@
                 android:text="산토리니"
                 android:textColor="#818181"
                 android:textSize="17dp" />
+
+            <ImageButton
+                android:id="@+id/bt_qrcode"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/camera"
+                android:background="#0000"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/modify"
+                android:visibility="invisible"/>
+
             <ImageButton
                 android:id="@+id/modify"
                 android:layout_width="25dp"

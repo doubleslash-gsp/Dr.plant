@@ -59,6 +59,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.05"
             android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <ImageView
@@ -117,13 +119,6 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/circle"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:src="@drawable/circle"/>
 
 

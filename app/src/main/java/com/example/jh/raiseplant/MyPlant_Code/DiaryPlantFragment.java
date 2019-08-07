@@ -1,6 +1,7 @@
 package com.example.jh.raiseplant.MyPlant_Code;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -22,8 +23,9 @@ import com.example.jh.raiseplant.Constants;
 import com.example.jh.raiseplant.HttpClient;
 import com.example.jh.raiseplant.MainActivity;
 import com.example.jh.raiseplant.R;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +39,7 @@ import static com.example.jh.raiseplant.R.layout;
 
 public class DiaryPlantFragment extends Fragment implements View.OnClickListener {
 
-    private ImageButton cancle, modify;
+    private ImageButton cancle, modify, bt_qrcode;
     private ImageView diary_plantpic;
     private EditText diary_plantname, diary_plantkind, diary_plantkindEn, last_water;
     private TextView firstdate, temperature, humi, dateplus;
@@ -110,6 +112,9 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
         modify = (ImageButton) rootView.findViewById(id.modify);
         modify.setOnClickListener(this);
 
+        bt_qrcode = (ImageButton) rootView.findViewById(id.bt_qrcode);
+        bt_qrcode.setOnClickListener(this);
+
         diary_plantpic = (ImageView)rootView.findViewById(id.diary_plantpic); //식물 사진
 
         dateplus = (TextView) rootView.findViewById(id.dateplus);
@@ -176,6 +181,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
 
         return rootView;
     }
+
     private void updateDisplay(){
         if(resultNumber>=0){
             dateplus.setText(String.format("-%d",resultNumber));
@@ -192,6 +198,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
         Log.i("error_test", "reflag flag': " + reflag);
         if (reflag){ //수정모드
             modify.setImageResource(drawable.okay);
+            bt_qrcode.setVisibility(View.VISIBLE);
             diary_plantname.setEnabled(true);//식물이름
             diary_plantname.setFocusable(true);
             diary_plantname.setFocusableInTouchMode(true);
@@ -210,6 +217,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
             Toast.makeText(getContext(), "수정 가능합니다.", Toast.LENGTH_SHORT).show();
         } else{ //비수정모드
             modify.setImageResource(drawable.modify);
+            bt_qrcode.setVisibility(View.INVISIBLE);
             diary_plantname.setEnabled(false); //식물이름
             diary_plantname.setFocusable(false);
             diary_plantname.setFocusableInTouchMode(false);
@@ -237,8 +245,11 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
                 modify_mode = EditMode(modify_mode);
                 Log.i("error_test", "modify flag': " + modify_mode);
                 break;
-            case id.cancle:
+            case R.id.cancle:
                 ((MainActivity)getActivity()).onBackPressed();
+                break;
+            case id.bt_qrcode:
+                new IntentIntegrator(getActivity()).initiateScan();
                 break;
         }
     }
@@ -253,7 +264,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
         param.put("kind_eng", diary_plantkindEn.getText().toString()); //식물종료(영어)
         param.put("firstday", firstdate.getText().toString());
         param.put("lastwater", last_water.getText().toString());
-
+        param.put("qr_code", ((MainActivity)getActivity()).qrcode_uno);
         updatePlantTask update = new updatePlantTask();
         update.execute(param);
 
