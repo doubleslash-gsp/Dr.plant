@@ -46,15 +46,13 @@ public class AlarmHATT {
 
         //알람시간 calendar에 set해주기
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 3);
-        calendar.set(Calendar.MINUTE, 7);
-        calendar.set(Calendar.SECOND, 50);
+        calendar.set(Calendar.HOUR_OF_DAY, 6);
+        calendar.set(Calendar.MINUTE, 29);
+        calendar.set(Calendar.SECOND, 0);
 
         if(calendar.before(Calendar.getInstance())){ // if it's in the past, increment
             calendar.add(Calendar.DATE, 1);
         }
-
-
 
         AlarmManager am = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE); //알림 행위 등록
         //알람 예약

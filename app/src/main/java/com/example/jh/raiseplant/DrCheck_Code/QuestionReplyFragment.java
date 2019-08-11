@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,7 +74,7 @@ public class QuestionReplyFragment extends Fragment implements View.OnClickListe
 
 
         tv_content = (TextView) rootview.findViewById(R.id.tv_content);
-        tv_content.setText(content); //문의내용
+        tv_content.setText(Html.fromHtml(content,  Html.	FROM_HTML_MODE_LEGACY)); //문의내용
 
         SharedPreferences auto = getActivity().getSharedPreferences("auto", Activity.MODE_PRIVATE);
         String user_id = auto.getString("user_id", null);

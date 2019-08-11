@@ -137,12 +137,16 @@ public class MyPlantFragment extends Fragment implements View.OnClickListener {
                         String name = jObject.getString("name");
                         String kind = jObject.getString("kind");
                         String water = jObject.getString("water");
+                        String qr_code = jObject.getString("qr_code");
 
                         //recycler view show
                         plant.setNum(num);
                         plant.setName(name);
                         plant.setKind(kind);
                         plant.setWater(water);
+                        plant.setHumidity(jObject.getInt("humidity"));
+                        plant.setTemper(jObject.getInt("temper"));
+                        plant.setQr_code(qr_code);
 
                         String number = Integer.toString(num);
                         editor.putString(number, jObject.toString()); // JSON으로 변환한 객체를 저장한다.

@@ -126,6 +126,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
         diary_plantkind.setText(getkind);//식물종류
 
         diary_plantkindEn = (EditText)rootView.findViewById(id.diary_plantkindEn);
+
         if(getkindeng != null){
             diary_plantkindEn.setText(getkindeng); //식물 종류 영어
         }
@@ -144,7 +145,9 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
             humi.setText(Integer.toString(gethumi));//식물 토양 습도
 
         firstdate = (EditText) rootView.findViewById(id.et_firstday); //구매날짜
-        if(getfirsday != null) {
+        if(getfirsday==null) {
+
+        } else {
             firstdate.setText(getfirsday);
 
             if(getfirsday.length()==10){
@@ -156,20 +159,21 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
                 // 현재 날짜와 시간을 가져오기위한 Calendar 인스턴스 선언
                 Calendar cal = Calendar.getInstance();
                 mYear = cal.get(Calendar.YEAR);
-                mMonth = cal.get(Calendar.MONTH);
+                mMonth = cal.get(Calendar.MONTH)+1;
                 mDay = cal.get(Calendar.DAY_OF_MONTH);
-
-                Log.i("error_test", "date: " + dYear + dMonth +dDay);
-
+                cal.set(mYear, mMonth, mDay);
 
                 Calendar dCal = Calendar.getInstance();
                 dCal.set(dYear,dMonth,dDay);
 
-                t=cal.getTimeInMillis(); //오늘 날짜를 밀리타임으로 바꿈
-                d=dCal.getTimeInMillis(); //디데이날짜를 밀리타임으로 바꿈
-                r=(d-t)/(24*60*60*1000);  //디데이 날짜에서 오늘 날짜를 뻰 값을 '일'단위로 바꿈
+                t=cal.getTimeInMillis()/(24*60*60*1000); //오늘 날짜를 밀리타임으로 바꿈
+                d=dCal.getTimeInMillis()/(24*60*60*1000);  //디데이날짜를 밀리타임으로 바꿈
+                r=(d-t); //디데이 날짜에서 오늘 날짜를 뻰 값을 '일'단위로 바꿈
+                Log.i("error_test", "today " +mYear + mMonth + mDay);
+                Log.i("error_test", "dday " +dYear + dMonth + dDay);
+                Log.i("error_test", "dday " +t + "  " + d + "   "+ r);
 
-                resultNumber=(int)r+1;
+                resultNumber=(int)r;
                 updateDisplay();
             }else{
                 Toast.makeText(getContext(), "구매 날짜를 확인해주세요.", Toast.LENGTH_SHORT).show();
@@ -183,6 +187,7 @@ public class DiaryPlantFragment extends Fragment implements View.OnClickListener
     }
 
     private void updateDisplay(){
+        Log.i("error_test", "resultNumber" +resultNumber);
         if(resultNumber>=0){
             dateplus.setText(String.format("-%d",resultNumber));
         }

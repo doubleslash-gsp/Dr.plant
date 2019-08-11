@@ -1,10 +1,13 @@
 package com.example.jh.raiseplant.SelfCheck_Code;
 
 
+import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,15 @@ import android.widget.ListView;
 
 import com.example.jh.raiseplant.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class SelfCheckFragment  extends Fragment {
 
@@ -46,9 +55,8 @@ public class SelfCheckFragment  extends Fragment {
     final String[] answer = new String[Dr_Plant.length];
 
     //식물 목록
-    private String[] plantName = {
-            "콩이", "버터커피", "석탄", "zz"
-    };
+//    private String[] plantName = {"콩이", "버터커피", "석탄", "zz"};
+    private List<String> plantName;
 
     //병명과 증상, 진단내용
     PlantDisease[] plantDisease = {
@@ -81,6 +89,21 @@ public class SelfCheckFragment  extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         ViewGroup chatView = (ViewGroup) inflater.inflate(R.layout.fragment_selfcheck, container, false);
+
+        plantName = new ArrayList<String>();
+
+        SharedPreferences sp = getActivity().getSharedPreferences("plant_object", Activity.MODE_PRIVATE);
+        Map<String,?> keys = sp.getAll();
+        JSONObject jObject = null;
+        for(Map.Entry<String,?> entry : keys.entrySet()){
+            try {
+                jObject = new JSONObject(entry.getValue().toString());
+                String getname = jObject.getString("name");
+                plantName.add(getname);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } //end try catch
+        } //plantName에 식물이름넣기
 
         // 커스텀 어댑터 생성
         m_Adapter = new CustomAdapter();
@@ -116,10 +139,11 @@ public class SelfCheckFragment  extends Fragment {
                                 if (inputValue.matches(".*" + plNa + ".*")) {
                                     answer[i++] = inputValue;
                                     refresh(Dr_Plant[i], date_time, 0);
+                                    Log.i("error_test", plNa);
                                     break;
                                 } else count++;
                             }
-                            if (count != 0 && count == plantName.length) {
+                            if (count != 0 && count == plantName.size()) {
                                 refresh("없는식물입니다. 다시 입력해주세요.", date_time, 0);
                                 i = 0;
                             }

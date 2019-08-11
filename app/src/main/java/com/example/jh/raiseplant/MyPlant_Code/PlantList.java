@@ -12,16 +12,20 @@ public class PlantList {
     private String lastwater;
     private String firstday;
     private String kind_eng;
+    private String qr_code;
 
     public PlantList(){
 
     }
 
-    public PlantList(int num, String name, String kind, String water) {
+    public PlantList(int num, String name, String kind, String water, String qr_code, int humidity, int temper) {
         this.num = num;
         this.name = name;
         this.kind = kind;
         this.water = water;
+        this.qr_code = qr_code;
+        this.humidity = humidity;
+        this.temper = temper;
     }
 
     public PlantList(int num, String name, String kind, String water, int humidity, int temper, String lastwater, String firstday, String kind_eng) {
@@ -115,5 +119,13 @@ public class PlantList {
 
     public void setKind_eng(String kind_eng) {
         this.kind_eng = kind_eng;
+    }
+
+    public String getQr_code() {
+        return qr_code;
+    }
+
+    public void setQr_code(String qr_code) {
+        this.qr_code = qr_code;
     }
 }

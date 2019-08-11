@@ -50,10 +50,6 @@
 
         <receiver android:name=".InfoReceiver" android:enabled="true"  />
 
-        <service
-            android:name=".AlarmService"
-            android:enabled="true"
-            android:exported="true"></service>
     </application>
 
 </manifest>

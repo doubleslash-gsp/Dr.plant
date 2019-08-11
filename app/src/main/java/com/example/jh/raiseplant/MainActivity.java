@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //notification content
     private StringBuilder content;
 
+    private int temper=0, humidity=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -183,16 +185,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 } else {
                     Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-                    //스캔 성공 시, arcore fragment로 이동
+
+
+                    SharedPreferences sp = getSharedPreferences("plant_object", Activity.MODE_PRIVATE);
+                    Map<String,?> keys = sp.getAll();
+                    JSONObject jObject = null;
+                    for(Map.Entry<String,?> entry : keys.entrySet()){
+                        try {
+                            jObject = new JSONObject(entry.getValue().toString());
+                            String qr_code = jObject.getString("qr_code");
+
+                            if(qr_code.equals(result.getContents())){
+                                temper = jObject.getInt("temper");
+                                humidity = jObject.getInt("humidity");
+                                break;
+
+                            }else{
+                                Toast.makeText(this, "일치하는 식물이 없습니다.", Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } //end try catch
+                    }
                     FragmentTransaction transaction = fragmentManager.beginTransaction();
-                    transaction.replace(R.id.frame_layout, arFragment.newInstance(30, 30)).commitAllowingStateLoss();
+                    transaction.replace(R.id.frame_layout, arFragment.newInstance(humidity, temper)).commitAllowingStateLoss();
                     transaction.addToBackStack(null);
-                /* 참고사이트
-                https://stackoverflow.com/questions/52251070/how-to-display-png-image-in-arcore?noredirect=1&lq=1
-                https://developers.google.com/ar/develop/java/sceneform/create-renderables
-                https://codelabs.developers.google.com/codelabs/sceneform-intro/#4 5단계 테스트 진행중
-                https://stackoverflow.com/questions/49818161/cant-install-arcore-on-emulator-for-android-studio
-                */
+                    /* 참고사이트
+                    https://stackoverflow.com/questions/52251070/how-to-display-png-image-in-arcore?noredirect=1&lq=1
+                    https://developers.google.com/ar/develop/java/sceneform/create-renderables
+                    https://codelabs.developers.google.com/codelabs/sceneform-intro/#4 5단계 테스트 진행중
+                    https://stackoverflow.com/questions/49818161/cant-install-arcore-on-emulator-for-android-studio
+                    */
                 }
 
             }else{
